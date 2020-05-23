@@ -1,0 +1,17 @@
+<html><body>
+INTEGER SQUARE ROOT<br>
+&copy;2020&nbsp;&nbsp;CHARLES JOSEPH HAWKINS<br><br>
+INPUT:<br><input type="text" id="SQ"></input><button onclick='SQRT()'>ENTER</button><br><br>OUTPUT:<br><div id="RT"></div>
+<script>
+function SQRT(){
+	let N=parseInt(document.getElementById('SQ').value);
+	let Ans=document.getElementById('RT');let P="";let T=0;let M=N;let L=N;let A1=0;let A2=0;
+    while(M%2==0){M=M/4;T=T+1;}if(M==1){Ans.innerHTML=Ans.innerHTML+'SQRT['+L+'] = '+(2**T)+'</br>';}if(T>0){N=M;}
+    let X=((N-1)/2)%9;let Y=((N+1)/2)%9;let Z=((((N+1)/2)+1)/6)%9;
+    if(X==3 && Y==4){ A1=5; A2=13;}if(X==6 && Y==7){ A1=11; A2=7;}if(X==0 && Y==1){ A1=17; A2=19;}
+    if (X==4 && Y==5 && Z==1){ A1=15; A2=3;}if (X==4 && Y==5 && Z==7){ A1=9; A2=0;}
+    while(A1<N || A2<N){if(A1*A1==N || A2*A2==N){break;}A1=A1+18;A2=A2+18;}		
+    if(A1**2==N && T==0){Ans.innerHTML='SQRT['+N+'] = '+A1;}if(A2**2==N && T==0){Ans.innerHTML='SQRT['+N+'] = '+A2;}
+    if(A1**2==N && T>=1){Ans.innerHTML='SQRT['+L+'] = '+A1*(2**T);}if(A2**2==N && T>=1){Ans.innerHTML='SQRT['+L+'] = '+A2*(2**T);}
+	if(A1**2!=N && A2**2!=N && M!=1){Ans.innerHTML=Ans.innerHTML+'SQRT['+L+'] = '+'NO SQRT'+'</br>';}}
+</script></body></html>
